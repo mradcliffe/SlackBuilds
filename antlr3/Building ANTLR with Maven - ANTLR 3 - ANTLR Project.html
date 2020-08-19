@@ -1,0 +1,950 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app13.us.archive.org';v.server_ms=740;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="/_static/js/playback.bundle.js?v=WZP3QDOw" charset="utf-8"></script>
+<script type="text/javascript" src="/_static/js/wombat.js?v=cRqOKCOw" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://www.antlr.org:80/wiki/display/ANTLR3/Building+ANTLR+with+Maven","20131017012319","https://web.archive.org/web/","web","/_static/",
+	      "1381972999","www.antlr.org:80");
+</script>
+<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css?v=_99BHQfY" />
+<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css?v=qtvMKcIJ" />
+<!-- End Wayback Rewrite JS Include -->
+
+            <title>Building ANTLR with Maven - ANTLR 3 - ANTLR Project</title>
+    
+        
+
+                        
+    
+                        
+    
+    
+            <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use AJS.Confluence.getContextPath() -->
+<meta id="confluence-context-path" name="confluence-context-path" content="/wiki">
+<meta id="confluence-base-url" name="confluence-base-url" content="http://www.antlr.org/wiki">
+
+<meta id="atlassian-token" name="atlassian-token" content="272e2b216313cdd7d675051454aadeaf5c7f61bf">
+
+<meta id="confluence-space-key" name="confluence-space-key" content="ANTLR3">
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '/wiki';
+</script>
+
+    
+
+<!-- include system css resources -->
+
+
+    <link type="text/css" rel="stylesheet" href="/web/20131017012319cs_/http://www.antlr.org/wiki/s/en_GB/3148/5/51/_/download/superbatch/css/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3148/5/51/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if IE 9]>
+<link type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3148/5/51/_/download/superbatch/css/batch.css?conditionalComment=IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3148/5/51/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/web/20131017012319cs_/http://www.antlr.org/wiki/s/en_GB/3148/5/51/_/download/superbatch/css/batch.css?media=print" media="print">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3148/5/905bbe94e525636cf4c03949efd3ee7f/_/download/contextbatch/css/page/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/web/20131017012319cs_/http://www.antlr.org/wiki/s/en_GB/3148/5/905bbe94e525636cf4c03949efd3ee7f/_/download/contextbatch/css/page/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/wiki/s/en_GB/3148/5/6a0f00b2b8b63a64648fcde5843040aa/_/download/contextbatch/css/viewcontent,main/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/web/20131017012319cs_/http://www.antlr.org/wiki/s/en_GB/3148/5/6a0f00b2b8b63a64648fcde5843040aa/_/download/contextbatch/css/viewcontent,main/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/web/20131017012319cs_/http://www.antlr.org/wiki/s/en_GB/3148/5/1/_/styles/colors.css?spaceKey=ANTLR3" media="all">
+<link type="text/css" rel="stylesheet" href="/web/20131017012319cs_/http://www.antlr.org/wiki/s/en_GB/3148/5/1.0/_/download/resources/com.atlassian.confluence.themes.default:styles/default-theme.css" media="all">
+
+<!-- end system css resources -->
+
+    <meta name="confluence-request-time" content="1381972999245">
+            <meta name="ajs-page-id" content="35127313">
+            <meta name="ajs-page-title" content="Building ANTLR with Maven">
+            <meta name="ajs-parent-page-id" content="791">
+            <meta name="ajs-space-key" content="ANTLR3">
+            <meta name="ajs-space-name" content="ANTLR 3">
+            <meta name="ajs-parent-page-title" content="ANTLR v3 documentation">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-context-path" content="/wiki">
+            <meta name="ajs-version-number" content="4.1.9">
+            <meta name="ajs-build-number" content="3148">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/wiki/s/en_GB/3148/5/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="30485760">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="">
+            <meta name="ajs-atl-token" content="272e2b216313cdd7d675051454aadeaf5c7f61bf">
+            
+            <meta name="ajs-keyboardshortcut-hash" content="43f68e3206abedd011968cdad9213b59">
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+    <!-- Deprecated since 3.4. To be removed in a future version of Confluence; use atl.header -->
+        
+            <script type="text/x-template" title="share-content-popup">
+    <form action="#" method="post" class="aui share-content-popup">
+        <fieldset>
+            <label for="users">User name or email</label>
+            <div class="autocomplete-user-target">
+                <input class="text autocomplete-sharepage" id="users" data-max="10" data-dropdown-target=".autocomplete-user-target" data-none-message="No matching user or email found"/>
+            </div>
+            <ol class="recipients">
+            </ol>
+            <div><label for="note">Note</label></div>
+            <textarea class="textarea" id="note" placeholder="Add an optional note"/>
+        </fieldset>
+        <div class="button-panel">
+            <div class="progress-messages-icon"></div>
+            <div class="progress-messages">
+            </div>
+            <input class="button submit" type="submit" value="Share" disabled/>
+            <a class="close-dialog" href="#">Cancel</a>
+        </div>
+    </form>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-username">
+    <li data-username="{username}" style="display: none">
+        <span>
+            <img src="{thumbnailLink.href}" title="{title}">
+            <span>{title}</span>
+            <span class="remove-recipient"/>
+        </span>
+    </li>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-email">
+    <li data-email="{email}" style="display: none">
+        <span>
+            <img src="{icon}" title="{email}">
+            <span>{email}</span>
+            <span class="remove-recipient"/>
+        </span>
+    </li>
+</script>
+    
+    <link rel="shortcut icon" href="/web/20131017012319im_/http://www.antlr.org/wiki/favicon.ico">
+    <link rel="icon" type="image/png" href="/web/20131017012319im_/http://www.antlr.org/wiki/s/en_GB/3148/5/_/images/logo/confluence_16_white.png">
+
+<link rel="search" type="application/opensearchdescription+xml" href="/web/20131017012319/http://www.antlr.org/wiki/opensearch/osd.action" title="ANTLR Project"/>
+
+        <!-- include system javascript resources -->
+                        
+    
+    <script type="text/javascript" src="/web/20131017012319js_/http://www.antlr.org/wiki/s/en_GB/3148/5/51/_/download/superbatch/js/batch.js"></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/wiki/s/en_GB/3148/5/51/_/download/superbatch/js/batch.js?conditionalComment=lte+IE+8" ></script>
+<![endif]-->
+<script type="text/javascript" src="/web/20131017012319js_/http://www.antlr.org/wiki/s/en_GB/3148/5/905bbe94e525636cf4c03949efd3ee7f/_/download/contextbatch/js/page/batch.js"></script>
+<script type="text/javascript" src="/web/20131017012319js_/http://www.antlr.org/wiki/s/en_GB/3148/5/6a0f00b2b8b63a64648fcde5843040aa/_/download/contextbatch/js/viewcontent,main/batch.js"></script>
+
+    
+    <!-- end system javascript resources -->
+
+    
+
+    
+    <link rel="canonical" href="https://web.archive.org/web/20131017012319/http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven">
+    <link rel="shortlink" href="https://web.archive.org/web/20131017012319/http://www.antlr.org/wiki/x/EQAYAg">
+    <meta name="wikilink" content="[ANTLR3:Building ANTLR with Maven]">
+    <meta name="page-version" content="7">
+
+
+</head>
+    
+<body onload="placeFocus()" id="com-atlassian-confluence" class="theme-default "><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  /*min-width:800px !important;*/
+}
+</style>
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display:none;direction:ltr;">
+<div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
+<div id="wm-ipp-inside">
+  <div style="position:relative;">
+    <div id="wm-logo" style="float:left;width:130px;padding-top:10px;">
+      <a href="/web/" title="Wayback Machine home page"><img src="/_static/images/toolbar/wayback-toolbar-logo.png" alt="Wayback Machine" width="110" height="39" border="0" /></a>
+    </div>
+    <div class="r" style="float:right;">
+      <div id="wm-btns" style="text-align:right;height:25px;">
+                  <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="#"
+	     title="Share via My Web Archive" >
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php"
+             title="Sign In"
+             id="wm-sign-in"
+          >
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web"></span>
+        	<a href="http://faq.web.archive.org/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+	<a id="wm-tb-close" href="#close" onclick="__wm.h(event);return false;" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share">
+          <a href="/web/20131017012319/http://web.archive.org/screenshot/http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven"
+             id="wm-screenshot"
+             title="screenshot">
+            <span class="wm-icon-screen-shot"></span>
+          </a>
+	<a id="wm-share-facebook" href="#" data-url="https://web.archive.org/web/20131017012319/http://www.antlr.org:80/wiki/display/ANTLR3/Building+ANTLR+with+Maven" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+	<a id="wm-share-twitter" href="#" data-url="https://web.archive.org/web/20131017012319/http://www.antlr.org:80/wiki/display/ANTLR3/Building+ANTLR+with+Maven" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+    </div>
+    <table class="c" style="">
+      <tbody>
+	<tr>
+	  <td class="u" colspan="2">
+	    <form target="_top" method="get" action="/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven" onfocus="this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20131017012319" /><input type="submit" value="Go" /></form>
+	  </td>
+	  <td class="n" rowspan="2" style="width:110px;">
+	    <table>
+	      <tbody>
+		<!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+		<tr class="m">
+		  <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20130120150848/http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven" title="20 Jan 2013"><strong>Jan</strong></a></td>
+		  <td class="c" id="displayMonthEl" title="You are here: 01:23:19 Oct 17, 2013">OCT</td>
+		  <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20140209145739/http://www.antlr.org:80/wiki/display/ANTLR3/Building+ANTLR+with+Maven" title="09 Feb 2014"><strong>Feb</strong></a></td>
+		</tr>
+		<!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+		<tr class="d">
+		  <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20131011015218/http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven" title="01:52:18 Oct 11, 2013"><img src="/_static/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0" /></a></td>
+		  <td class="c" id="displayDayEl" style="width:34px;font-size:24px;white-space:nowrap;" title="You are here: 01:23:19 Oct 17, 2013">17</td>
+		  <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20131019065157/http://www.antlr.org:80/wiki/display/ANTLR3/Building+ANTLR+with+Maven" title="06:51:57 Oct 19, 2013"><img src="/_static/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0" /></a></td>
+		</tr>
+		<!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+		<tr class="y">
+		  <td class="b" nowrap="nowrap">2012</td>
+		  <td class="c" id="displayYearEl" title="You are here: 01:23:19 Oct 17, 2013">2013</td>
+		  <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20170608155047/http://www.antlr.org:80/wiki/display/ANTLR3/Building+ANTLR+with+Maven" title="08 Jun 2017"><strong>2017</strong></a></td>
+		</tr>
+	      </tbody>
+	    </table>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="s">
+	    	    <div id="wm-nav-captures">
+	      	      <a class="t" href="/web/20131017012319*/http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven" title="See a list of every capture for this URL">12 captures</a>
+	      <div class="r" title="Timespan for captures of this URL">20 Jan 2013 - 15 Nov 2017</div>
+	      </div>
+	  </td>
+	  <td class="k">
+	    <a href="" id="wm-graph-anchor">
+	      <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+		<canvas id="wm-sparkline-canvas" width="625" height="27" border="0"></canvas>
+	      </div>
+	    </a>
+	  </td>
+	</tr>
+      </tbody>
+    </table>
+    <div style="position:absolute;bottom:0;right:2px;text-align:right;">
+      <a id="wm-expand" class="wm-btn wm-closed" href="#expand" onclick="__wm.ex(event);return false;"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span style="font-size:80%">About this capture</span></a>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+                    <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+            <div style="display:inline-block;vertical-align:top;width:50%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/alexacrawls);"></span>
+		Organization: <a style="color:#33f;" href="https://archive.org/details/alexacrawls" target="_new"><span class="wm-title">Alexa Crawls</span></a>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  Starting in 1996, <a href="http://www.alexa.com/">Alexa Internet</a> has been donating their crawl data to the Internet Archive.  Flowing in every day, these data are added to the <a href="http://web.archive.org/">Wayback Machine</a> after an embargo period.
+	</div>
+	      </div>
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/alexacrawls)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/alexacrawls" target="_new"><span class="wm-title">Alexa Crawls</span></a></div>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  Starting in 1996, <a href="http://www.alexa.com/">Alexa Internet</a> has been donating their crawl data to the Internet Archive.  Flowing in every day, these data are added to the <a href="http://web.archive.org/">Wayback Machine</a> after an embargo period.
+	</div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="/_static/images/loading.gif" alt="loading" /></div>
+    </div>
+    </div>
+  </div></div></div></div><div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;transpiled=0&amp;referer=https%3A//web.archive.org/web/20131017012319/http%3A//www.antlr.org/wiki/display/ANTLR3/Building%252BANTLR%252Bwith%252BMaven"
+	    scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><script type="text/javascript">
+__wm.bt(625,27,25,2,"web","http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven","20131017012319",1996,"/_static/",["/_static/css/banner-styles.css?v=_99BHQfY","/_static/css/iconochive.css?v=qtvMKcIJ"]);
+  __wm.rw(1);
+</script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+<ul id="assistive-skip-links" class="assistive">
+    <li><a href="#title-heading">Skip to content</a></li>
+    <li><a href="#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="#navigation">Skip to action menu</a></li>
+    <li><a href="#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+
+
+
+    
+<div id="header" class="">
+                      
+    <form id="quick-search" class="quick-search" method="get" action="/web/20131017012319/http://www.antlr.org/wiki/dosearchsite.action">
+        <fieldset>
+            <label class="assistive" for="quick-search-query">Quick Search</label>
+            <input id="quick-search-query" class="quick-search-query" type="search" accesskey="q" autocomplete="off" name="queryString" size="25" title="Quick Search"/>
+            <input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"/>
+            <div class="aui-dd-parent quick-nav-drop-down"></div>
+        </fieldset>
+        <div class="hidden parameters">
+                                        <!-- putMetadata failed to add value for key "quick-nav-enabled" so rendering metadata inline - see server debug log for details -->
+        <meta name="ajs-quick-nav-enabled" content="true">
+                                                    </div>
+    </form>
+    <ul id="header-menu-bar" class="ajs-menu-bar">
+                    
+        
+            <li class="normal ajs-menu-item">
+        <a id="browse-menu-link" class="browse trigger ajs-menu-title" href="#"><span><span>Browse</span></span></a>         <div class="assistive ajs-drop-down">
+                        <ul id="browse-menu-link-leading" class="section-leading first">
+                                        <li>
+    
+        
+    
+    <a id="space-pages-link" href="/web/20131017012319/http://www.antlr.org/wiki/pages/listpages.action?key=ANTLR3" class="" title="Browse pages in the ANTLR 3 space">
+                   <span>Pages</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="space-blogposts-link" href="/web/20131017012319/http://www.antlr.org/wiki/pages/viewrecentblogposts.action?key=ANTLR3" class="" title="Browse blogs in the ANTLR 3 space">
+                   <span>Blog</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="space-labels-link" href="/web/20131017012319/http://www.antlr.org/wiki/labels/listlabels-heatmap.action?key=ANTLR3" class="" title="Browse labels in the ANTLR 3 space">
+                   <span>Labels</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="space-attachments-link" href="/web/20131017012319/http://www.antlr.org/wiki/spaces/listattachmentsforspace.action?key=ANTLR3" class="" title="Browse attachments in the ANTLR 3 space">
+                   <span>Attachments</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="space-mail-link" href="/web/20131017012319/http://www.antlr.org/wiki/mail/archive/viewmailarchive.action?key=ANTLR3" class="" title="Browse mail in the ANTLR 3 space">
+                   <span>Mail</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="space-advanced-link" href="/web/20131017012319/http://www.antlr.org/wiki/spaces/viewspacesummary.action?key=ANTLR3" class="" title="Browse additional space functions in the ANTLR 3 space">
+                   <span>Advanced</span></a>        </li>
+                            </ul>
+                        <ul id="browse-menu-link-global" class="section-global">
+                                        <li>
+    
+        
+    
+    <a id="whats-new-menu-link" href="https://web.archive.org/web/20131017012319/http://docs.atlassian.com/confluence/docs-41/whatsnew/iframe" class="" title="">
+                   <span>What’s New</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="people-directory-link" href="/web/20131017012319/http://www.antlr.org/wiki/peopledirectory.action" class="" title="Browse the Confluence people directory">
+                   <span>People Directory</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="space-directory-link" href="/web/20131017012319/http://www.antlr.org/wiki/spacedirectory/view.action" class="" title="Browse the Confluence space directory">
+                   <span>Space Directory</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="feed-builder-link" href="/web/20131017012319/http://www.antlr.org/wiki/dashboard/configurerssfeed.action" class="" title="Create your custom RSS feed.">
+                   <span>Feed Builder</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="keyboard-shortcuts-link" href="/web/20131017012319/http://www.antlr.org/wiki" class="" title="View available keyboard shortcuts">
+                   <span>Keyboard Shortcuts</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="gadget-directory-link" href="/web/20131017012319/http://www.antlr.org/wiki" class="user-item administration-link" title="Browse gadgets provided by Confluence">
+                   <span>Confluence Gadgets</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+        
+                                                         <li class="ajs-menu-item normal">
+        
+        
+    
+    <a id="login-link" href="/web/20131017012319/http://www.antlr.org/wiki/login.action?os_destination=%2Fdisplay%2FANTLR3%2FBuilding%2BANTLR%2Bwith%2BMaven" class="user-item login-link" title="">
+                   <span>Log In</span></a>        </li>
+                            </ul>
+    
+    
+    <ol id="breadcrumbs">
+                    
+                        
+        <li class="first">
+                                    <span><a href="/web/20131017012319/http://www.antlr.org/wiki/dashboard.action" title="Go to Dashboard">Dashboard</a></span>
+                </li>
+                    
+                
+        <li>
+                                    <span><a href="/web/20131017012319/http://www.antlr.org/wiki/display/ANTLR3">ANTLR 3</a></span>
+                </li>
+                                        <li id="ellipsis" title="Show all breadcrumbs"><span><strong>&#8230;</strong></span></li>
+                                    
+                
+        <li class="hidden-crumb">
+                                    <span><a href="/web/20131017012319/http://www.antlr.org/wiki/display/ANTLR3/ANTLR+3+Wiki+Home">ANTLR 3 Wiki Home</a></span>
+                </li>
+                                
+                
+        <li class="hidden-crumb">
+                                    <span><a href="/web/20131017012319/http://www.antlr.org/wiki/display/ANTLR3/ANTLR+v3+documentation">ANTLR v3 documentation</a></span>
+                </li>
+                    
+                
+        <li>
+                                    <span><a href="/web/20131017012319/http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven">Building ANTLR with Maven</a></span>
+                </li>
+        </ol>
+
+</div><!-- \#header -->
+
+<div id="main">
+    
+    
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                
+                        
+            <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action trigger ajs-menu-title" href="#"><span><span>Tools</span></span></a>         <div class="assistive ajs-drop-down">
+                        <ul id="action-menu-link-primary" class="section-primary first">
+                                        <li>
+    
+        
+    
+    <a id="view-attachments-link" href="/web/20131017012319/http://www.antlr.org/wiki/pages/viewpageattachments.action?pageId=35127313" class="action-view-attachments" accesskey="a" title="View Attachments">
+                   <span><u>A</u>ttachments (0)</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="action-view-history-link" href="/web/20131017012319/http://www.antlr.org/wiki/pages/viewpreviousversions.action?pageId=35127313" class="action-view-history" title="">
+                   <span>Page History</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="action-page-permissions-link" href="/web/20131017012319/http://www.antlr.org/wiki/pages/viewinfo.action?pageId=35127313" class="action-page-permissions" title="Edit restrictions">
+                   <span>Restrictions</span></a>        </li>
+                            </ul>
+                        <ul id="action-menu-link-secondary" class="section-secondary">
+                                        <li>
+    
+        
+    
+    <a id="view-page-info-link" href="/web/20131017012319/http://www.antlr.org/wiki/pages/viewinfo.action?pageId=35127313" class="action-view-info" title="">
+                   <span>Info</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="link-to-page-link" href="/web/20131017012319/http://www.antlr.org/wiki/pages/viewinfo.action?pageId=35127313" class="" title="Link to this Page">
+                   <span>Link to this Page&hellip;</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="view-in-hierarchy-link" href="/web/20131017012319/http://www.antlr.org/wiki/pages/listpages-dirview.action?key=ANTLR3&amp;openId=35127313#selectedPageInHierarchy" class="" title="">
+                   <span>View in Hierarchy</span></a>        </li>
+                                        <li>
+    
+        
+    
+    <a id="action-view-source-link" href="/web/20131017012319/http://www.antlr.org/wiki/plugins/viewsource/viewpagesrc.action?pageId=35127313" class="action-view-source popup-link" title="">
+                   <span>View Source</span></a>        </li>
+                            </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+    
+    <h1 id="title-heading" class="pagetitle">
+                    <a href="/web/20131017012319/http://www.antlr.org/wiki/display/ANTLR3"><img class="logo space custom" src="/web/20131017012319im_/http://www.antlr.org/wiki/download/attachments/292/ANTLR3?version=1&amp;modificationDate=1229714323000" alt=""></a>        
+		<span id="title-text">
+					            <a href="/web/20131017012319/http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven">Building ANTLR with Maven</a>
+    				</span>
+    </h1>
+
+    
+
+                        
+    
+    
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+
+<div id="content" class="page view">
+    
+<div id="action-messages">
+    </div>
+
+
+
+                
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Specify the new parent page for this page and its children by space and title.
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        <fieldset>
+                
+
+    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
+            <div class="row">
+                <label for="new-space">New space:</label>
+                <div class="value new-space-value">
+                    <input id="new-space-key" name="new-space-key" type="hidden" value="ANTLR3">
+                                            <span class="space-input">
+                            <input id="new-space" name="new-space" value="ANTLR 3" disabled="disabled">
+                        </span>
+                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
+                                        <div class="new-space-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+            <div class="row">
+                <label for="new-parent-page">New parent page:</label>
+                <div class="value new-parent-page-value">
+                    <span class="page-input">
+                        <input id="new-parent-page" name="new-parent-page" value="ANTLR v3 documentation">
+                    </span>
+                    <span class="description">Start typing a page title to see a list of suggestions.</span>
+                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="location-info">
+        <div class="row">
+            <label>Current location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>New location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Search for and select the new parent page for this page and its children.
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+        <div class="search-form">
+            <fieldset>
+                    
+
+    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
+                    
+
+    <label  for="move-page-search-query" class="assistive">Search keywords</label>
+                <input class="search-query" id="move-page-search-query">
+                    
+
+    <label  for="move-page-search-space" class="assistive">Search in space</label>
+                                    <select id="move-page-search-space" class="search-space" disabled="disabled">
+                        <option value="ANTLR3" selected="selected">ANTLR 3</option>
+                    </select>
+                                <input type="button" value="Search">
+                                    <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
+                            </fieldset>
+        </div>
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table>
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/wiki/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script><!-- Start restrictions section -->
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+
+                <div id="page-permissions-error-div" class="hidden">
+            <a href="#" id="permissions-error-div-close">Ok</a>
+            <div></div>
+        </div>
+
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div>
+                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">Restrict viewing of this page</label>
+                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">Restrict editing of this page</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">To:</div>
+            <div id="page-permissions-chooser-box">
+                                <span id="page-permissions-choose-user" class="ajs-button">
+                    
+
+
+
+    
+
+
+
+<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/wiki/spaces/openuserpicker.action?key=ANTLR3&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/wiki/s/en_GB/3148/5/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
+<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/wiki/spaces/openuserpicker.action?key=ANTLR3&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="ajs-button">
+                    
+
+
+
+    
+
+ 
+
+<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/wiki/spaces/opengrouppicker.action?key=ANTLR3&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/wiki/s/en_GB/3148/5/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
+<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/wiki/spaces/opengrouppicker.action?key=ANTLR3&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                <input type="text" id="page-permissions-names-input" name="permissionNames"
+                    placeholder="Enter user or group name" class="autocomplete-user"
+                    data-max="10" data-none-message="No matches"
+                    data-target="#page-permissions-names-hidden" data-template="{username}"
+                    data-dropdown-target="#page-perms-name-dropdown-wrapper" data-resize-to-input="true"
+                    size="30"/>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/wiki/s/en_GB/3148/5/_/images/border/spacer.gif"/>
+                <input type="button" id="add-typed-names" value="Restrict">
+                <div id="page-perms-name-dropdown-wrapper" class="aui-dd-parent autocomplete"></div>
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">Show/Hide</a>
+                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<!-- End restrictions section -->
+
+        
+    
+    
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+                            <li class="page-metadata-item noprint">
+    
+            
+    
+    <a id="content-metadata-page-restrictions" href="#" class="page-metadata-icon page-restrictions hidden" title="Page restrictions apply. Click the lock icon to view or edit the restriction.">
+                   <span>Page restrictions apply</span></a>        </li>
+                        <li class="page-metadata-modification-info">
+                                    Added by <a href="/web/20131017012319/http://www.antlr.org/wiki/display/~admin" class="url fn confluence-userlink" data-username="admin">Terence Parr</a>, last edited by <a href="/web/20131017012319/http://www.antlr.org/wiki/display/~sharwell" class="url fn confluence-userlink" data-username="sharwell">Sam Harwell</a> on Dec 12, 2012
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/web/20131017012319/http://www.antlr.org/wiki/pages/diffpages.action?pageId=35127313&amp;originalId=35389458">view change</a>)</span>
+                                                </li>
+                    </ul>
+                </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+        
+                                
+        <div id="main-content" class="wiki-content">
+                           <h2 id="BuildingANTLRwithMaven-SamHarwell-Dec72012">Sam Harwell - Dec. 7, 2012</h2><p>Several phases of the Maven build exist for preparing proper releases. Each of the following variables must be configured or explicitly overridden/ignored.</p><h3 id="BuildingANTLRwithMaven-InitialSetup">Initial Setup</h3><p>Before the first time Maven is used to build ANTLR 3 from source, the following command should be executed in the top-level directory of the source tree.</p><pre>mvn -N install</pre><h3 id="BuildingANTLRwithMaven-Examples">Examples</h3><p>Each of these examples is written as a &quot;quick start&quot; case, and assumes the following:</p><ul><li>You do not have GPG installed or configured</li><li>You are building the project with Maven 3+ and JDK 6+</li><li>You have a copy of Java 6 installed</li><li>You may or may not have a copy of Java 5 installed</li></ul><h4 id="BuildingANTLRwithMaven-Windows">Windows</h4><h5 id="BuildingANTLRwithMaven-WithJava5installed">With Java 5 installed</h5><pre>mvn -Dgpg.skip=true -Duser.name=&quot;Your Name&quot; -DskipTests=true &quot;-Djava5.home=C:\Program Files (x86)\Java\jre5&quot; &quot;-Djava6.home=C:\Program Files (x86)\Java\jre6&quot; install</pre><h5 id="BuildingANTLRwithMaven-WithoutJava5installed">Without Java 5 installed</h5><pre>mvn -Dgpg.skip=true -Duser.name=&quot;Your Name&quot; -DskipTests=true &quot;-Dbootclasspath.compile=C:\Program Files (x86)\Java\jre6\lib\rt.jar&quot; &quot;-Djava6.home=C:\Program Files (x86)\Java\jre6&quot; install</pre><h4 id="BuildingANTLRwithMaven-Linux">Linux</h4><h5 id="BuildingANTLRwithMaven-WithJava5installed">With Java 5 installed</h5><pre>mvn -Dgpg.skip=true -Duser.name=&quot;Your Name&quot; -DskipTests=true -Djava5.home=/path/to/jre5 -Djava6.home=/path/to/jre6 install</pre><h5 id="BuildingANTLRwithMaven-WithoutJava5installed">Without Java 5 installed</h5><pre>mvn -Dgpg.skip=true -Duser.name=&quot;Your Name&quot; -DskipTests=true -Dbootclasspath.compile=/path/to/jre6/lib/rt.jar -Djava6.home=/path/to/jre6 install</pre><h4 id="BuildingANTLRwithMaven-MacOSX">Mac OSX</h4><div><h5 id="BuildingANTLRwithMaven-WithJava5installed">With Java 5 installed</h5><pre>mvn -Dgpg.skip=true -Dbootclasspath.java5=/System/Library/Frameworks/JavaVM.framework/Versions/1.5/Classes/classes.jar -Dbootclasspath.java6=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Classes/classes.jar -DskipTests install</pre><h5 id="BuildingANTLRwithMaven-WithoutJava5installed">Without Java 5 installed</h5><pre>mvn -Dgpg.skip=true -Dbootclasspath.compile=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Classes/classes.jar -Dbootclasspath.java6=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Classes/classes.jar -DskipTests install</pre></div><h3 id="BuildingANTLRwithMaven-ArtifactsigningGPG">Artifact signing (GPG)</h3><p>By default Maven will sign the build artifacts with GPG, and assumes you have your system configured according to Sonatype's Blog entry <a href="https://web.archive.org/web/20131017012319/http://www.sonatype.com/people/2010/01/how-to-generate-pgp-signatures-with-maven/" class="external-link" rel="nofollow">&quot;How to Generate PGP Signatures with Maven&quot;</a>. One of the following should be used each time Maven is used to build the project.</p><ol><li>Skip the phase by passing <code>-Dgpg.skip=true</code> to Maven (required for users without GPG installed or configured).</li><li>Configure the GPG passphrase by passing <code>-Dgpg.passphrase=<em>passphrase</em></code> to Maven (or simply <code>-Dgpg.passphrase</code> if your private key does not require a passphrase).</li><li>Run the Maven build without specifying one of the above, in which case signing will be enabled and Maven will ask you to enter the passphrase during the signing phase.</li></ol><h3 id="BuildingANTLRwithMaven-BootstrapClasspath">Bootstrap Classpath</h3><p>The build is configured to pass the <code>-bootstrap</code> option to javac to ensure that the compiled artifacts will run with Java 5 and the test suites will run with Java 6, even when compiled with Java 7.</p><h4 id="BuildingANTLRwithMaven-CompiledArtifactsJava5">Compiled Artifacts: Java 5</h4><p>Maven needs the path to a copy of <code>rt.jar</code> (Windows, Linux) or <code>Classes.jar</code> (OSX) from Java 5. This may be configured by any of the following methods:</p><ol><li>(Windows, Linux) Set the <code>JAVA5_HOME</code> environment variable to the home folder of a Java 5 runtime installation. When using this option, the library <code>rt.jar</code> should be available in <code>%JAVA5_HOME%\lib\rt.jar</code> (Windows) or <code>$JAVA5_HOME/lib/rt.jar</code> (Linux).</li><li>(Windows, Linux) Pass the option <code>-Djava5.home=<em>path</em></code> to Maven. The path should be in the same form as listed for the <code>JAVA5_HOME</code> enviroment variable, and takes precedence over the environment variable if both are specified.</li><li>(Windows, Linux, OSX) Pass the option <code>-Dbootclasspath.java5=<em>path</em></code> to Maven. This should be the full path to <code>rt.jar</code> (Windows, Linux) or <code>Classes.jar</code> (OSX).</li><li>For users without a copy of Java 5 installed, the Java 5 validation may be skipped by passing the option <code>-Dbootclasspath.compile=<em>path</em></code> to Maven. This should be the full path to <code>rt.jar</code> (Windows, Linux) or <code>Classes.jar</code> (OSX) for some version of Java newer than Java 5.</li></ol><h4 id="BuildingANTLRwithMaven-CompiledTestSuiteJava6">Compiled Test Suite: Java 6</h4><p>Maven needs the path to a copy of <code>rt.jar</code> (Windows, Linux) or <code>Classes.jar</code> (OSX) from Java 6. This may be configured by any of the following methods:</p><ol><li>(Windows, Linux) Set the <code>JAVA6_HOME</code> environment variable to the home folder of a Java 6 runtime installation. When using this option, the library <code>rt.jar</code> should be available in <code>%JAVA6_HOME%\lib\rt.jar</code> (Windows) or <code>$JAVA6_HOME/lib/rt.jar</code> (Linux).</li><li>(Windows, Linux) Pass the option <code>-Djava6.home=<em>path</em></code> to Maven. The path should be in the same form as listed for the <code>JAVA6_HOME</code> enviroment variable, and takes precedence over the environment variable if both are specified.</li><li>(Windows, Linux, OSX) Pass the option <code>-Dbootclasspath.java6=<em>path</em></code> to Maven. This should be the full path to <code>rt.jar</code> (Windows, Linux) or <code>Classes.jar</code> (OSX).</li><li>For users without a copy of Java 6 installed, the Java 6 validation may be skipped by passing the option <code>-Dbootclasspath.testCompile=<em>path</em></code> to Maven. This should be the full path to <code>rt.jar</code> (Windows, Linux) or <code>Classes.jar</code> (OSX) for some version of Java newer than Java 6.</li></ol><h3 id="BuildingANTLRwithMaven-AdditionalBuild Options">Additional Build Options</h3><p>These options are not required for building ANTLR 3, but can be useful in certain scenarios. This is not a complete list of options which affect the build, but should include the most commonly used (or &quot;interesting&quot;) options.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Option</th><th class="confluenceTh">Result</th></tr><tr><td class="confluenceTd"><code>&quot;-Duser.name=Your Name&quot;</code></td><td class="confluenceTd">This option controls the value for <code>Built-By</code> contained in the generated MANIFEST.MF. The default value is the username of the user launching the build.</td></tr><tr><td class="confluenceTd"><code>-Dgpg.skip=true</code></td><td class="confluenceTd">When this option is specified, the signing phase of the build will be skipped. Users without GPG installed must specify this option; users wishing to speed up the build during development may also find it useful.</td></tr><tr><td class="confluenceTd"><code>-Dgpg.useagent=true</code></td><td class="confluenceTd"><p>For users with GPG 2 installed, passing this option to Maven will prevent the build from producing messages about <code>--use-agent</code> being an obsolete option.</p></td></tr><tr><td colspan="1" class="confluenceTd"><code>-Dmaven.javadoc.skip=true</code></td><td colspan="1" class="confluenceTd">Skips the generation of Javadoc archive for each artifact. This option can speed up the build during development when this archive is not required.</td></tr><tr><td colspan="1" class="confluenceTd"><code>-Dsource.skip=true</code></td><td colspan="1" class="confluenceTd">Skips the generation of a source archive for each artifact. This option can speed up the build during development when this archive is not required.</td></tr><tr><td colspan="1" class="confluenceTd"><code>-DskipTests=true</code></td><td colspan="1" class="confluenceTd">Skips the execution of unit tests as part of the build.</td></tr><tr><td colspan="1" class="confluenceTd"><code>-Dmaven.test.skip=true</code></td><td colspan="1" class="confluenceTd">Skips both the compilation and execution of unit tests as part of the build.</td></tr></tbody></table></div><p> </p><h3 id="BuildingANTLRwithMaven-JimIdle-March2009">Jim Idle - March 2009</h3><p>[out of date]</p><p>This file contains the build instructions for the ANTLR toolset as of version 3.1.3 and beyond.</p><p>The ANTLR toolset must be built using the Maven build system as this build system updates the version numbers and controls the whole build process. However, if you just want the latest build and do not care to learn anything about Maven, then visit the 'target' directories (for jars) under the depot mirror root here:</p><p><a href="https://web.archive.org/web/20131017012319/http://antlr.org/depot" class="external-link" rel="nofollow">http://antlr.org/depot</a></p><p>If you are looking for the latest released version of ANTLR, then visit the downloads page on the main antlr.org website.</p><p>These instructions are mainly for the ANTLR development team, though you are free to build ANTLR yourself of course.</p><p>Source code Structure<br/>-----------------------</p><p>The main development branch of ANTLR is stored within the Perforce SCM at:</p><p>//depot/code/antlr/main/...</p><p>release branches are stored in Perforce like so:</p><p>//depot/code/antlr/release-3.1.3/...</p><p>In this top level directory, you will find a master build file for Maven called pom.xml and you will also note that there are a number of subdirectories:</p><p>tool - The ANTLR tool itself<br/> runtime/Java - The ANTLR Java runtime<br/> runtime/X - The runtime for language target X<br/> gunit - The grammar test tool<br/> antlr3-maven-plugin - The plugin tool for Maven allowing Maven<br/> projects to process ANTLR grammars.</p><p>Each of these sub-directories also contains a file pom.xml that controls the build of each sub-component (or module in Maven parlance).</p><p>Build Parameters<br/>-----------------</p><p>Alongside each pom.xml (other than for the antlr3-maven-plugin), you will see that there is a file called antlr.config. This file is called a filter and should contain a set of key/value pairs in the same manner as Java properties files:</p><p>antlr.something=&quot;Some config thang!&quot;</p><p>When the build of any component happens, any values in the antlr.config for the master build file and any values in the antlr.config file for each component are made available to the build. This is mainly used by the resource processor, which will filter any file it finds under: src/main/resources/** and replace any references such as ${antlr.something} with the actual value at the time of the build.</p><p>Building<br/>--------</p><p>Building ANTLR is trivial, assuming that you have loaded Maven version 3.0.3 or better on to your build system and installed it as explained here:</p><p><a href="https://web.archive.org/web/20131017012319/http://maven.apache.org/download.html" class="external-link" rel="nofollow">http://maven.apache.org/download.html</a></p><p>Note that the ANTLR toolset will ONLY build with version 3.0.3 of Maven as of release 3.4.</p><p>If you are unfamiliar with Maven (and even if you are), the best resource for learning about it is The Definitive Guide:</p><p><a href="https://web.archive.org/web/20131017012319/http://www.sonatype.com/books/maven-book/reference/public-book.html" class="external-link" rel="nofollow">http://www.sonatype.com/books/maven-book/reference/public-book.html</a></p><p>The instructions here assume that Maven is installed and working correctly.</p><p>If this is the first time you have built the ANTLR toolset, you will possibly need to install the master pom in your local repository (however the build may be able to locate this in the ANTLR snapshot or release repository). If you try to build sub-modules on their own (as in run the mvn command in the sub directory for that tool, such as runtime/Java), and you receive a message that maven cannot find the master pom, then execute this in the main (or release) directory:</p><p>mvn -N install</p><p>This command will install the master build pom in your local maven repository (it's ~/.m2 on UNIX) and individual builds of sub-modules will now work correctly.</p><p>To build then, simply cd into the master build directory (e.g. $P4ROOT//code/antlr/main) and type:</p><p>mvn -Dmaven.test.skip=true</p><p>Assuming that everything is correctly installed and synchronized, then ANTLR will build and skip any unit tests in the modules (the ANTLR tool tests can take a long time).</p><p>This command will build each of the tools in the correct order and will create the jar artifacts of all the components in your local development Maven repository (which takes precedence over remote repositories by default). At the end of the build you should see:</p><p>[INFO] ------------------------------------------------------------------------<br/>[INFO] Reactor Summary:<br/>[INFO] ------------------------------------------------------------------------<br/>[INFO] ANTLR Master build control POM ........................ SUCCESS [1.373s]<br/>[INFO] Antlr 3 Runtime ....................................... SUCCESS [0.879s]<br/>[INFO] ANTLR Grammar Tool .................................... SUCCESS [5.431s]<br/>[INFO] Maven plugin for ANTLR V3 ............................. SUCCESS [1.277s]<br/>[INFO] ANTLR gUnit ........................................... SUCCESS [1.566s]<br/>[INFO] Maven plugin for gUnit ANTLR V3 ....................... SUCCESS [0.079s]<br/>[INFO] ------------------------------------------------------------------------<br/>[INFO] ------------------------------------------------------------------------<br/>[INFO] BUILD SUCCESSFUL<br/>[INFO] ------------------------------------------------------------------------<br/>[INFO] Total time: 11 seconds</p><p>However, unless you are using Maven exclusively in your projects, you will most likely want to build the ANTLR Uber Jar, which is an executable jar containing all the components that ANTLR needs to build and run parsers (note that at runtime, you need only the runtime components you use, such as the Java runtime and say stringtemplate).</p><p>Because the Uber jar is not something we want to deploy to Maven repositories it is built with a special invocation of Maven:</p><p>mvn -Dmaven.test.skip=true package <a href="https://web.archive.org/web/20131017012319/http://assemblyassembly/" class="external-link" rel="nofollow">assembly:assembly</a></p><p>Note that Maven will appear to build everything twice, which is a quirk of how it calculates the dependencies and makes sure it has everything packaged up so it can build the uber-jar assembly.</p><p>Somewhere in the build output (towards the end), you will find a line like this:</p><p>[INFO] Building jar: /home/jimi/antlrsrc/code/antlr/main/target/antlr-master-3.4-SNAPSHOT-completejar.jar</p><p>This is the executable jar that you need and you can either copy it somewhere or, like me, you can create this script (assuming UNIX) somewhere in your PATH:</p><p>#! /bin/bash<br/>java -jar ~/antlrsrc/code/antlr/main/target/antlr-master-3.4-SNAPSHOT-completejar.jar $*</p><p>Version Numbering<br/>-------------------</p><p>The first and Golden rule is that any pom files stored under the main branch of the toolset should never be modified to contain a release version number. They should always contain a.b.c-SNAPSHOT (e.g. 3.1.3-SNAPSHOT). Only release branches should have their pom version numbers set to a release version. You can release as many SNAPSHOTS as you like, but only one release version. However, release versions may be updated with a patch level: 3.1.3-1, 3.1.3-2 and so on.</p><p>Fortunately, Maven helps us with the version numbering in a number of ways. Firstly, the pom.xml files for the various modules do not specify a version of the artifacts themselves. They pick up their version number from the master build pom. However, there is a catch, because they need to know what version of the parent pom they inherit from and so they DO mention the version number. However, this does prevent accidentally releasing different versions of sub-modules than the master pom describes.</p><p>Fortunately once again, Maven has a neat way of helping us change the version. All you need do is check out all the pom.xml files from perforce, then modify the &lt;version&gt;a.b.c-SNAPSHOT&lt;/version&gt; in the master pom. When the version number is correct in the master pom, you make sure your working directory is the location of the master pom and type:</p><p>mvn <a href="https://web.archive.org/web/20131017012319/http://versionsupdate-child-modules/" class="external-link" rel="nofollow">versions:update-child-modules</a></p><p>This command will then update the child pom.xml files to reflect the version number defined in the master pom.xml.</p><p>There is unfortunately one last catch here though and that is that the antlr3-maven-plugin and the gunit-maven-plugin are not able to use the parent pom. The reason for this is subtle but makes sense as doing so would create a circular dependency between the ANTLR tool (which uses the plugin to build its own grammar files), and the plugins (which uses the tool to build grammar files and gunit to test).</p><p>This catch-22 situation means that the pom.xml file in the antlr3-maven-plugin directory and the one in the gunit-maven-plugin directory MUST be updated manually (or we must write a script to do this).</p><p>Finally, we need to remember that because the tool is dependent on the antlr3-maven-plugin and the plugin is itself dependent on the tool, that we must manually update the versions of each that they reference. So, when we bump the version of the toolset to say 3.1.4-SNAPSHOT, we need to change the antlr3-maven-plugin pom.xml and the gunit-maven-plugin pom.xml to reference that version of the antlr tool. The tool itself is always built with the prior released version of the plugin, so when we release we must change the main branch of the plugin to use the newly released version of the plugin. This is covered in the release checklist.</p><p>Deploying<br/>----------</p><p>Deploying the tools at the current version is relatively easy, but to deploy to the ANTLR repositories (snapshot or release) you must have been granted access to the Sonatype OSS repositories' ANTLR login. Few people will have this access of course.</p><p>Next, because we do not publish access information for antlr.org, you will need to configure the repository server names locally. You do this by creating (or adding to) the file:</p><p>~/.m2/settings.xml</p><p>Which should look like this:</p><p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br/>&lt;settings&gt;<br/> &lt;servers&gt;<br/> &lt;server&gt;<br/> &lt;id&gt;sonatype-nexus-snapshots&lt;/id&gt;<br/> &lt;username&gt;xxxxxxx&lt;/username&gt;<br/> &lt;password&gt;xxxxxxx&lt;/password&gt;<br/> &lt;/server&gt;<br/> &lt;server&gt;<br/> &lt;id&gt;sonatype-nexus-staging&lt;/id&gt;<br/> &lt;username&gt;xxxxxxx&lt;/username&gt;<br/> &lt;password&gt;xxxxxxx&lt;/password&gt;<br/> &lt;/server&gt;<br/> &lt;/servers&gt;<br/>&lt;/settings&gt;</p><p>When this configuration is in place, you will be able to deploy the components, either individually or from the master directory:</p><p>mvn -Dmaven.test.skip=true -Ddeplot deploy</p><p>You will then see lots of information about checking existing version information and so on, and the components will be deployed once you supply the ANTLR public key passphrase to sign the jars.</p><p>Note that so long as the artifacts are versioned with a.b.c-SNAPSHOT then deployment will always be to the development snapshot directory. When the artifacts are versioned with a release version then deployment will be to the release stahinh repository, which will then be mirrored around the world if closed and release. The sonatype documentation should be consulted.</p><p>Release Checklist<br/>------------------</p><p>Here is the procedure to use to make a release of ANTLR. Note that we should really use the mvn <a href="https://web.archive.org/web/20131017012319/http://releaserelease/" class="external-link" rel="nofollow">release:release</a> command, but the perforce plugin for Maven is not commercial quality and I want to rewrite it.</p><p>For this checklist, let's assume that the current development version of ANTLR is 3.1.3-SNAPSHOT. This means that it will probably (but not necessarily) become release version 3.1.3 and that the development version will bump to 3.1.4-SNAPSHOT.</p><p>0) Run a build of the main branch and check that it is builds and passes as many tests as you want it to.</p><p>1) First make a branch from main into the target release directory. Then submit this to perforce. You could change versions numbers before submitting, but doing that in separate stages will keep things sane;</p><p>--- Use main development branch from here ---</p><p>2) Before we deploy the release, we want to update the versions of the development branch, so we don't deploy what is now the new release as an older snapshot (this is not super important, but procedure is good right?).</p><p>Check out all the pom.xml files (and if you are using any antlr.config parameters that must change, then do that too).</p><p>3) Edit the master pom.xml in the main directory and change the version from 3.1.3-SNAPSHOT to 3.1.4-SNAPSHOT.</p><p>4) Edit the pom.xml file for antlr3-maven-plugin under the main directory and change the version from 3.1.3-SNAPSHOT to 3.1.4-SNAPSHOT. Do the same for the pom.xml in the gunit-maven-plugin directory.</p><p>Update the pom.xml for the archetype manually too.</p><p>5) Now (from the main directory), run the command:</p><p>mvn <a href="https://web.archive.org/web/20131017012319/http://versionsupdate-child-modules/" class="external-link" rel="nofollow">versions:update-child-modules</a></p><p>You should see:</p><p>[INFO] [<a href="https://web.archive.org/web/20131017012319/http://versionsupdate-child-modules/" class="external-link" rel="nofollow">versions:update-child-modules</a>]<br/> [INFO] Module: gunit<br/> [INFO] Parent is org.<a href="https://web.archive.org/web/20131017012319/http://antlrantlr-master:3.1.4-SNAPSHOT" class="external-link" rel="nofollow">antlr:antlr-master:3.1.4-SNAPSHOT</a><br/> [INFO] Module: runtime/Java<br/> [INFO] Parent is org.<a href="https://web.archive.org/web/20131017012319/http://antlrantlr-master:3.1.4-SNAPSHOT" class="external-link" rel="nofollow">antlr:antlr-master:3.1.4-SNAPSHOT</a><br/> [INFO] Module: tool<br/> [INFO] Parent is org.<a href="https://web.archive.org/web/20131017012319/http://antlrantlr-master:3.1.4-SNAPSHOT" class="external-link" rel="nofollow">antlr:antlr-master:3.1.4-SNAPSHOT</a></p><p>6) Run a build of the main branch:</p><p>mvn -Dmaven.test.skip=true</p><p>All should be good.</p><p>7) Submit the pom changes of the main branch to perforce.</p><p>8) Deploy the new snapshot as a placeholder for the next release. It will go to the snapshot repository of course:</p><p>mvn -N deploy<br/> mvn -Dmaven.test.skip=true deploy</p><p>9) You are now finished with the main development branch and should change working directories to the release branch you made earlier.</p><p>--- Use release branch from here ---</p><p>10) Check out all the pom.xml files in the release branch (and if you are using any antlr.config parameters that must change, then do that too).</p><p>11) Edit the master pom.xml in the release-3.1.3 directory and change the version from 3.1.3-SNAPSHOT to 3.1.3.</p><p>12) Edit the pom.xml file for antlr3-maven-plugin under the release-3.1.3 directory and change the version from 3.1.3-SNAPSHOT to 3.1.3. Also change the version of the tool that the this pom.xml references from 3.1.3-SNAPSHOT to 3.1.3 as we are now releasing the plugin of course and it needs to reference the version we are about to release. You will find this reference in the dependencies section of the antlr3-maven-plugin pom.xml. Also change the version references in the pom for gunit-maven-plugin.</p><p>13) Now (from the release-3.1.3 directory), run the command:</p><p>mvn <a href="https://web.archive.org/web/20131017012319/http://versionsupdate-child-modules/" class="external-link" rel="nofollow">versions:update-child-modules</a></p><p>You should see:</p><p>[INFO] [<a href="https://web.archive.org/web/20131017012319/http://versionsupdate-child-modules/" class="external-link" rel="nofollow">versions:update-child-modules</a>]<br/> [INFO] Module: gunit<br/> [INFO] Parent was org.<a href="https://web.archive.org/web/20131017012319/http://antlrantlr-master:3.1.3-SNAPSHOT" class="external-link" rel="nofollow">antlr:antlr-master:3.1.3-SNAPSHOT</a>,<br/> now org.<a href="https://web.archive.org/web/20131017012319/http://antlrantlr-master:3.1.3" class="external-link" rel="nofollow">antlr:antlr-master:3.1.3</a><br/> [INFO] Module: runtime/Java<br/> [INFO] Parent was org.<a href="https://web.archive.org/web/20131017012319/http://antlrantlr-master:3.1.3-SNAPSHOT" class="external-link" rel="nofollow">antlr:antlr-master:3.1.3-SNAPSHOT</a>,<br/> now org.<a href="https://web.archive.org/web/20131017012319/http://antlrantlr-master:3.1.3" class="external-link" rel="nofollow">antlr:antlr-master:3.1.3</a><br/> [INFO] Module: tool<br/> [INFO] Parent was org.<a href="https://web.archive.org/web/20131017012319/http://antlrantlr-master:3.1.3-SNAPSHOT" class="external-link" rel="nofollow">antlr:antlr-master:3.1.3-SNAPSHOT</a>,<br/> now org.<a href="https://web.archive.org/web/20131017012319/http://antlrantlr-master:3.1.3" class="external-link" rel="nofollow">antlr:antlr-master:3.1.3</a></p><p>14) Run a build of the release-3.1.3 branch:</p><p>mvn # Note I am letting unit tests run here!</p><p>All should be good, or as good as it gets ;-)</p><p>15) Submit the pom changes of the release-3.1.3 branch to perforce.</p><p>16) Deploy the new release (this is it guys, make sure you are happy):</p><p>mvn -N deploy<br/> mvn -Dmaven.test.skip=true deploy</p><p>Note that we must skip the tests as Maven will not let you deploy releases that fail any junit tests.</p><p>17) The final step is that we must update the main branch pom.xml for the tool to reference the newly release version of the antlr3-maven-plugin. This is because each release of ANTLR is built with the prior release of ANTLR, and we have just released a new version. Edit the pom.xml for the tool (main/tool/pom.xml) under the main (that's the MAIN branch, not the release branch) and find the dependency reference to the antlr plugin. If you just released say 3.1.3, then the tool should now reference version 3.1.3 of the plugin. Having done this, you should probably rebuild the main branch and let it run the junit tests. Later, I will automate this dependency update as mvn can do this for us.</p><p>18) Having deployed the release to maven, you will want to create the uber jar for the new release, to make it downloadable from the antlr.org website. This is a repeat of the earlier described step to build the uber jar:</p><p>mvn -Dmaven.test.skip=true package <a href="https://web.archive.org/web/20131017012319/http://assemblyassembly/" class="external-link" rel="nofollow">assembly:assembly</a></p><p>MAven will produce the uber jar in the target directory:</p><p>antlr-master-3.1.3-completejar.jar</p><p>And this is the complete jar that can be downloaded from the web site. You may wish to produce an md5 checksum to go with the jar:</p><p>md5sum target/antlr-master-3.1.3-completejar.jar<br/> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx target/antlr-master-3.1.4-SNAPSHOT-completejar.jar</p><p>The command you just ran will also produce a second jar:</p><p>antlr-master-3.1.3-src.jar</p><p>This is the source code for everythign you just deployed and can be unjarred and built from scratch using the very procedures described here, which means you will now be reading this BUILD.txt file for ever.</p><p>19) Reward anyone around you with good beer.</p><p><br/>Miscellany<br/>-----------</p><p>It was a little tricky to get all the interdependencies correct because ANTLR builds itself using itself and the maven plugin references the ANTLR Tool as well. Hence the maven tool is not a child project of the master pom.xml file, even though it is built by it.</p><p>An observant person will note that when the <a href="https://web.archive.org/web/20131017012319/http://assemblyassembly/" class="external-link" rel="nofollow">assembly:assembly</a> phase is run, that it invokes the build of the ANTLR tool using the version of the Maven plugin that it has just built, and this results in the plugin using the version of ANTLR tool that it has just built. This is safe because everything will already be up to date and so we package up the version of the tool that we expect, but the Maven plugin we deploy will use the correct version of ANTLR, even though there is technically a circular dependency.</p><p>The master pom.xml does give us a way to cause the build of the ANTLR tool to use itself to build itself. This is because in dependencyManagement in the master pom.xml, we can reference the current version of the Tool and the Maven plugin, even though in the pom.xml for the tool itself refers to the previous version of the plugin.</p><p>What happens is that if we first cd into the tool and maven directories and build ANTLR, it will build itself with the prior version and this will deploy locally (.m2). We can then clean build from the master pom and when ANTLR asks for the prior version of the tool, the master pom.xml will override it and build with the interim versions we just built manually.</p><p>However, strictly speaking, we need a third build where we rebuild the tool again with the version of the tool that was built with itself and not deploy the version that was built by the version of itself that was built by a prior version of itself. I decided that this was not particularly useful and complicates things too much. Building with a prior version of the tool is fine and if there was ever a need to, we could release twice in quick succession.</p><p>I have occasionally seen the MAven reactor screw up (or perhaps it is the ANTLR tool) when building. If this happens you will see an ANTLR Panic - cannot find en.stg message. If this happens to you, then just rerun the build and it will eventually work.</p><p> </p><p> </p>
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven"
+    dc:identifier="http://www.antlr.org/wiki/display/ANTLR3/Building+ANTLR+with+Maven"
+    dc:title="Building ANTLR with Maven"
+    trackback:ping="http://www.antlr.org/wiki/rpc/trackback/35127313"/>
+</rdf:RDF>
+-->
+
+                    <script type="text/x-template" title="labels-dialog-div">
+
+    
+    <div id="labels-dialog">
+        <div class="labels-editor">
+            <span class="errorMessage error" id="errorSpan"></span>
+            <form method="GET" action="" id="add-labels-form">
+                <div id="labelOperationErrorContainer">
+                    <span class="error"><span class="errorMessage" id="labelOperationErrorMessage"></span></span>
+                </div>
+    
+                <div id="label-input-fields">
+                    <input autocomplete="off" id="labelsString" name="labelsString" value="">
+                    <input id="add-labels-editor-button" type="submit" class="add-labels" value="Add">
+                </div>
+                <div id="labelsAutocompleteList" class="aui-dd-parent resize-to-input" style="width: 417px"></div>
+                <div id="dialog-label-list">
+                    
+<span id="labels-section-title-none" class="no-labels-message" >
+None
+</span>
+<ul class="label-list">
+</ul>
+                </div>
+                <div id="waitImageAndStatus">
+                    <img class="waiting" alt="Please wait" src="/wiki/s/en_GB/3148/5/_/images/icons/wait.gif">&nbsp;
+                    <span id="labelOperationStatus" class="smalltext"></span>
+                </div>
+                <div class="labels-tip"></div>
+            </form>
+        </div>
+    </div>
+</script>
+                
+    
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-editor">
+        <span id="labels-section-title" class="label-title">Labels:</span>
+        <div id="labels-section-content" class="content-column">
+            
+<span id="labels-section-title-none" class="no-labels-message">
+None
+</span>
+<ul class="label-list">
+</ul>
+
+                            <a id="labels-edit" href="#" class="show-labels-editor editor-icon" title="Edit Labels">
+                    <span class="icon icon-edit">Edit Labels</span>
+                </a>
+                    </div>
+    </div>
+</div>
+        
+            
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+<div id="comments-section" class="pageSection group">
+    
+    
+    
+    
+    </div>
+
+
+            
+</div>
+
+
+    
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+
+
+
+    <br class="clear">
+</div><!-- \#main -->
+
+<div id="footer">
+                                                <p class="license license-opensource">
+                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to ANTLR. <a href="https://web.archive.org/web/20131017012319/http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                        
+    <ul id="poweredby">
+        <li class="noprint">Powered by <a href="https://web.archive.org/web/20131017012319/http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id="footer-build-information">4.1.9</span>, the <a href="https://web.archive.org/web/20131017012319/http://www.atlassian.com/software/confluence/tour/enterprise-wiki.jsp" class="hover-footer-link">Enterprise Wiki</a></li>
+        <li class="print-only">Printed by Atlassian Confluence 4.1.9, the Enterprise Wiki.</li>        
+        <li class="noprint"> &nbsp;&middot;&nbsp; <a href="https://web.archive.org/web/20131017012319/http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
+        <li class="noprint"> &nbsp;&middot;&nbsp; <a href="https://web.archive.org/web/20131017012319/http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+    </ul>
+
+    
+
+            
+    </div></div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1024344-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://web.archive.org/web/20131017012319/https://ssl' : 'https://web.archive.org/web/20131017012319/http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>
+<!--
+     FILE ARCHIVED ON 01:23:19 Oct 17, 2013 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:36:23 Aug 11, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  PetaboxLoader3.resolve: 344.144 (2)
+  LoadShardBlock: 350.043 (3)
+  exclusion.robots: 0.362
+  PetaboxLoader3.datanode: 252.588 (4)
+  load_resource: 330.332
+  captures_list: 382.227
+  esindex: 0.014
+  CDXLines.iter: 24.409 (3)
+  exclusion.robots.policy: 0.347
+  RedisCDXSource: 2.583
+-->

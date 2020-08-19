@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# forked-daapd	iTunes music server daemon. 
+#
+
+start() {
+  if [ -x /usr/sbin/forked-daapd ]; then
+  echo "Starting forked-daapd iTunes server: /usr/sbin/forked-daapd"
+  /usr/sbin/forked-daapd -c /etc/daapd/forked-daapd.conf 2> /dev/null
+  sleep 1 
+  fi
+}
+
+stop() {
+    echo "Killing forked-daapd iTunes server... "
+    killall /usr/sbin/forked-daapd 2> /dev/null
+}
+
+# How to call it.
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+	sleep 1
+        start
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|restart}"
+        ;;
+esac
+

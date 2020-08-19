@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>build:linux [Nightingale]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="date" content="2015-08-03T09:28:24-0700"/>
+<meta name="keywords" content="build,linux"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/lib/exe/opensearch.php" title="Nightingale"/>
+<link rel="start" href="/"/>
+<link rel="contents" href="/doku.php?id=build:linux&amp;do=index" title="Sitemap"/>
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="/feed.php?mode=list&amp;ns=build"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="/doku.php?do=export_xhtml&amp;id=build:linux"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="/doku.php?do=export_raw&amp;id=build:linux"/>
+<link rel="canonical" href="http://wiki.getnightingale.com/doku.php?id=build:linux"/>
+<link rel="stylesheet" type="text/css" href="/lib/exe/css.php?t=dokuwiki&amp;tseed=d3562dd5e5d22bd71edf0430b7a27b13"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='build';var JSINFO = {"id":"build:linux","namespace":"build"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="/lib/exe/js.php?tseed=d3562dd5e5d22bd71edf0430b7a27b13"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="/lib/tpl/dokuwiki/images/favicon.ico" />
+<link rel="apple-touch-icon" href="/lib/tpl/dokuwiki/images/apple-touch-icon.png" />
+        <link rel="stylesheet" href="//static.getnightingale.com/css/general.css">
+</head>
+
+<body>
+    <header id="ngalemainhead">
+		<a href="//getnightingale.com/" title="Home"><img src="//static.getnightingale.com/img/Nightingale_text.png" id="headlogo" alt="Nightingale. the tune of Life, the tune of yours."></a>
+		<nav>
+		<ul class="menu">
+			<li><a href="//getnightingale.com/" title="Home">Home</a></li>
+			<li><a href="//forum.getnightingale.com" title="Nightingale Forum">Forum</a></li>
+			<li><a href="//addons.getnightingale.com" title="Addons for Nightingale">Addons</a></li>
+			<li><a href="//blog.getnightingale.com" title="Development Blog">Blog</a></li>
+			<li class="actual"><a href="//wiki.getnightingale.com" title="Documentation and Wiki">Wiki</a></li>
+		</ul>
+		</nav>
+	</header>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dokuwiki     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+    </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="/doku.php?id=build:linux&amp;do=register"  class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="/doku.php?id=build:linux&amp;do=login&amp;sectok=d0db981d9d2b5f1f80cca789842a6ee6"  class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="/doku.php?id=start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="/doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="build:linux" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option><option value="register">Register</option></optgroup></select><input type="submit" value="&gt;" /></div></form>            </div>
+            <ul>
+                <li><a href="/doku.php?id=build:linux&amp;do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="/doku.php?id=build:linux&amp;do=media&amp;ns=build"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="/doku.php?id=build:linux&amp;do=index"  class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                                        <div class="trace"><span class="bchead">Trace:</span> <span class="bcsep">•</span> <span class="curid"><bdi><a href="/doku.php?id=build:linux"  class="breadcrumbs" title="build:linux">linux</a></bdi></span></div>
+                    </div>
+    
+    
+    <hr class="a11y" />
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>build:linux</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#building_nightingale_on_linux">Building Nightingale on Linux</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#when_to_build_nightingale">When to build Nightingale</a></div></li>
+<li class="level2"><div class="li"><a href="#if_you_re_sure_you_want_to_build">If you&#039;re sure you want to build</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#setting_up_a_build_environment">Setting up a Build Environment</a></div></li>
+<li class="level3"><div class="li"><a href="#clone_the_git_repository">Clone the Git Repository</a></div></li>
+<li class="level3"><div class="li"><a href="#configure_the_build">Configure the build</a></div></li>
+<li class="level3"><div class="li"><a href="#additional_steps_to_build_a_debian_package">Additional Steps to build a Debian Package</a></div></li>
+<li class="level3"><div class="li"><a href="#additional_steps_for_debug_builds">Additional steps for debug builds</a></div></li>
+<li class="level3"><div class="li"><a href="#building">Building</a></div></li>
+<li class="level3"><div class="li"><a href="#running_a_successful_build">Running a successful build</a></div></li>
+<li class="level3"><div class="li"><a href="#troubleshooting">Troubleshooting</a></div></li>
+<li class="level3"><div class="li"><a href="#external_resources">External Resources</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="building_nightingale_on_linux">Building Nightingale on Linux</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="when_to_build_nightingale">When to build Nightingale</h2>
+<div class="level2">
+
+<p>
+On Linux, you can either download the binaries from the <a href="http://getnightingale.com" class="urlextern" title="http://getnightingale.com"  rel="nofollow">homepage</a> or build the software yourself.
+If you&#039;re interested in developing add-ons or feathers, you do not necessarily need to build Nightingale. For some complex add-ons the build system described here might be needed or helpful, through.
+</p>
+
+<p>
+Building Nightingale allow you to work on the core code of Nightingale and also allow you to use the Nightingale Build System for building add-ons (Remember: most add-ons do NOT need to be built!).
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="if_you_re_sure_you_want_to_build">If you&#039;re sure you want to build</h2>
+<div class="level2">
+
+<p>
+Let&#039;s move to the actual building process:
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="setting_up_a_build_environment">Setting up a Build Environment</h3>
+<div class="level3">
+
+<p>
+You need some tools to build Nightingale. Here&#039;s a (maybe incomplete) list of requirements for using our build system:
+</p>
+
+</div>
+
+<h4 id="ubuntu_14041">Ubuntu 14.04.1</h4>
+<div class="level4">
+<pre class="code">sudo apt-get install git autoconf g++ libgtk2.0-dev libdbus-glib-1-dev libtag1-dev libgstreamer-plugins-base0.10-dev zip unzip libidl-dev  libasound2-dev</pre>
+
+</div>
+
+<h4 id="fedora_18_as_root">Fedora 18 (as root)</h4>
+<div class="level4">
+<pre class="code">yum -y install autoconf git-all gcc-c++ gtk2-devel dbus-glib-devel gstreamer-plugins-base-devel</pre>
+
+</div>
+
+<h4 id="opensuse_132">OpenSUSE 13.2</h4>
+<div class="level4">
+<pre class="code">zypper install git autoconf  gcc-c++ gtk2-devel dbus-1-glib-devel libtag-devel gstreamer-plugins-base-devel gstreamer-0_10-plugins-base-devel libidl-devel zip unzip</pre>
+
+</div>
+
+<h3 class="sectionedit5" id="clone_the_git_repository">Clone the Git Repository</h3>
+<div class="level3">
+<pre class="code">git clone https://github.com/nightingale-media-player/nightingale-hacking.git</pre>
+
+<p>
+To build a trunk build (like a nightly):
+</p>
+<pre class="code">git checkout sb-trunk-oldxul</pre>
+
+<p>
+If you want to build from a past release type the following, replacing VERSION with the desired version number:
+</p>
+<pre class="code">git checkout nightingale-VERSION</pre>
+
+</div>
+
+<h3 class="sectionedit6" id="configure_the_build">Configure the build</h3>
+<div class="level3">
+
+<p>
+You can specify options in nightingale.config. The file does not exist by default, as it is ignored by .gitignore.
+</p>
+
+<p>
+You can specify the following flags in nightingale.config (prefix with ac_add_options):
+</p>
+<pre class="code">  --enable-debug                         whether or not to compile a debug version (disabled by default)
+  --enable-jars                          whether or not to create jar files (enabled by default)
+  --enable-official                      whether or not to create an official build (disabled by default)
+  --enable-nightly                       whether or not to create an nightly build (disabled by default)
+  --enable-tests                         whether or not to build tests (defaults: debug:enabled rel:disabled)
+  --enable-update-channel=CHANNEL        which update channel to use (&quot;default&quot;)
+  --enable-breakpad                      whether or not to enable breakpad (disabled by default in non-official builds)
+  --enable-static                        experimental single-component static build support (disabled by default)
+  --enable-compiler-environment-checks   only allow officially-supported compiler versions (enabled by default)
+  --enable-unity-integration             enables Unity integration for audio menus and notifications (disabled by default)
+  --enable-system-nspr                   enables usage of your system&#039;s NSPR instead of a bundled version (disabled by default)
+  --enable-metrics                       enables integration of metrics collection infrastructure (disabled by default)</pre>
+
+</div>
+
+<h3 class="sectionedit7" id="additional_steps_to_build_a_debian_package">Additional Steps to build a Debian Package</h3>
+<div class="level3">
+
+<p>
+For Building, please skip to the Debian Package part of the Building section.
+</p>
+
+</div>
+
+<h4 id="aditional_dependencies">Aditional dependencies</h4>
+<div class="level4">
+
+<p>
+Building nightingale as a debian package brings additional dependencies with itself. To install the type
+</p>
+<pre class="code">sudo apt-get install build-essentials libgnomevfs2-dev libsqlite0-dev libnspr4-dev</pre>
+
+<p>
+sqlite is in theory not always needed, but it is listed in the debian/control file.
+</p>
+
+</div>
+
+<h4 id="prepare_the_directory">Prepare the directory</h4>
+<div class="level4">
+
+<p>
+In order to build the debian package, you can choose between two options:
+</p>
+
+<p>
+Change debian/source/format to <code>3.0 (native)</code> which in theory is wrong.
+</p>
+
+<p>
+Alternatively you can put a tarball of the source (you can use your local source or <a href="https://github.com/nightingale-media-player/nightingale-hacking/tarball/sb-trunk-oldxul" class="urlextern" title="https://github.com/nightingale-media-player/nightingale-hacking/tarball/sb-trunk-oldxul"  rel="nofollow">download the tarball from GitHub</a>) named nightingale_{version}.orig.tar.gz, where {version} is the latest version number according to the changelog in the debian directory up to the dash (e.g. 1.12.2), into the root nightingale source directory.
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="additional_steps_for_debug_builds">Additional steps for debug builds</h3>
+<div class="level3">
+
+<p>
+No special additional steps are required - apart from adding the debug build flag. build.sh should handle everything else for you.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="building">Building</h3>
+<div class="level3">
+
+<p>
+After you set everything up, you can open a terminal for building.
+</p>
+
+<p>
+Type the following to build:
+</p>
+<pre class="code">./build.sh</pre>
+
+<p>
+If everything is successful, you should see the words: “Build Successful!” on the last line of the output.
+</p>
+
+</div>
+
+<h4 id="building_a_debian_package">Building a Debian Package</h4>
+<div class="level4">
+
+<p>
+Navigate to the nightingale source code directory containing the “debian” directory in a terminal.
+Type
+</p>
+<pre class="code">dpkg-buildpackage</pre>
+
+<p>
+If it&#039;s only a local build and you don&#039;t want to sign the .dsc and .changes file, type
+</p>
+<pre class="code">dpkg-buildpackage -uc -us</pre>
+
+</div>
+
+<h3 class="sectionedit10" id="running_a_successful_build">Running a successful build</h3>
+<div class="level3">
+
+<p>
+To run after the build succeeded, run
+</p>
+<pre class="code">make run</pre>
+
+<p>
+Alternatively you can find the binary and resources in the compiled/dist folder relative to your source directory.
+</p>
+
+<p>
+For instructions on how to install a self-built Nightingale, see the INSTALL file in the source directory.
+</p>
+
+</div>
+
+<h3 class="sectionedit11" id="troubleshooting">Troubleshooting</h3>
+<div class="level3">
+
+<p>
+<strong>TODO</strong>
+</p>
+
+<p>
+If you are getting taglib reference errors when trying to build, you may need to manually install TagLib 1.8. See this <a href="http://forum.getnightingale.com/thread-617-post-2932.html#pid2932" class="urlextern" title="http://forum.getnightingale.com/thread-617-post-2932.html#pid2932"  rel="nofollow">forum post</a> for details.
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="external_resources">External Resources</h3>
+<div class="level3">
+
+<p>
+<a href="http://forum.getnightingale.com/thread-28.html" class="urlextern" title="http://forum.getnightingale.com/thread-28.html"  rel="nofollow">Build Thread</a>
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>build/linux.txt</bdi> · Last modified: 2015/08/03 09:28 by <bdi>freaktechnik</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="/doku.php?id=build:linux&amp;do=edit&amp;rev=0"  class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="/doku.php?id=build:linux&amp;do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="/doku.php?id=build:linux&amp;do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+
+    <div class="buttons">
+        <a href="http://www.php.net" title="Powered by PHP" ><img
+            src="/lib/tpl/dokuwiki/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" ><img
+            src="/lib/tpl/dokuwiki/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="/lib/exe/indexer.php?id=build%3Alinux&amp;1597332720" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+    </div>
+    <footer id="ngalemainfooter">
+	  <div id="lgradient"></div>
+		<ul id="footerwrapper" class="clearfix">
+			<li><img src="//static.getnightingale.com/img/footergale.png" alt="Nightingale logo" id="outlinedngale">
+			  <div id="license">
+			  <b>License</b>
+			  <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by/3.0/" rel="license" class="urlextern">CC Attribution 3.0 Unported</a></bdi></div> <!-- ready to include the dokuwiki licenseblock -->
+			  </div></li>
+			<li><nav>
+			<ul id="double" class="clearfix">
+			  <li><b>Content</b>
+			  <ul id="links">
+				<li><a href="//blog.getnightingale.com" title="Development Blog">Blog</a></li>
+				<li><a href="//forum.getnightingale.com" title="Nightingale Forum">Forum</a></li>
+				<li><a href="//addons.getnightingale.com" title="Addons for Nightingale">Addons</a></li>
+				<li><a href="all-versions.php" title="Download Nightingale">Download</a></li>
+				<li><a href="//forum.getnightingale.com/forum-13.html" title="Help" id="forumhelplink">Help</a></li>
+			  </ul></li>
+			  <li><b>Developer</b>
+			  <ul>
+				<li><a href="//wiki.getnightingale.com" title="Documentation and Wiki">Wiki</a></li>
+				<li><a href="//wiki.getnightingale.com/doku.php?id=ngale-locales" title="Translate Nightingale">Translate</a></li>
+				<li><a href="https://github.com/nightingale-media-player" title="GitHub">Source Code</a></li>
+			  </ul></li>
+			</ul>
+		  </nav></li>
+			<li id="buttons">
+			<nav>
+			  <b>Social</b>
+			  <ul>
+				<li><a href="https://twitter.com/getnightingale" title="Nightingale on twitter">Follow @getnightingale on Twitter</a></li>
+				<li><a href="https://www.facebook.com/pages/Nightingale/210174055669535" title="Nightingale on Facebook">Like Nightingale on Facebook</a></li>
+				<li><a href="https://plus.google.com/103377471329459083108/posts" title="Nightingale on Google+">Follow Nightingale on Google+</a></li>
+			  </ul>
+			</nav>
+			</li>
+		</ul>
+</footer>
+<script src="//static.getnightingale.com/js/language-switch.js" type="text/javascript"></script>
+</body>
+</html>

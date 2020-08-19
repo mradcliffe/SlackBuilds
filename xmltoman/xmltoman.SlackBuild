@@ -1,0 +1,60 @@
+#!/bin/sh -e
+# Matthew radcliffe revision date 2020/08/07
+
+CWD=$(pwd)
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+
+VERSION=${VERSION:-0.6}
+PKG_VERSION=$VERSION
+BUILD=${BUILD:-1}
+APP=xmltoman
+PKG=$TMP/package-$APP
+ARCH=noarch
+
+rm -rf $PKG
+mkdir -p $TMP/$PKG
+rm -rf $TMP/$APP-$VERSION
+
+cd $TMP || exit 1
+
+tar -zxvf $CWD/$APP-$VERSION.tar.gz || exit 1
+
+cd $APP-$VERSION || exit 1
+
+chown -R root:root .
+chmod -R u+w,go+r-w,a-s .
+
+make
+
+# Do not run make install because prefix is not configurable.
+
+install -D -m 0755 xmltoman $PKG/usr/bin/xmltoman
+install -D -m 0755 xmlmantohtml $PKG/usr/bin/xmlmantohtml
+install -D -m 0644 xmltoman.dtd $PKG/usr/share/xmltoman/xmltoman.dtd
+install -D -m 0644 xmltoman.css $PKG/usr/share/xmltoman/xmltoman.css
+install -D -m 0644 xmltoman.xsl $PKG/usr/share/xmltoman/xmltoman.xsl
+install -D -m 0644 xmltoman.1 $PKG/usr/man/man1/xmltoman.1
+install -D -m 0644 xmlmantohtml.1 $PKG/usr/man/man1/xmlmantohtml.1
+
+mkdir -p $PKG/usr/doc/$APP-$VERSION
+cp -a ChangeLog COPYING LICENSE README $PKG/usr/doc/$APP-$VERSION
+cat $CWD/$APP.SlackBuild > $PKG/usr/doc/$APP-$VERSION/$APP.SlackBuild
+
+# Compress man pages if they exist
+if [ -d $PKG/usr/man ]; then
+  ( cd $PKG/usr/man
+  find . -type f -exec gzip -9 {} \;
+  for i in $(find . -type l) ; do ln -s $(readlink $i).gz $i.gz ; rm $i ; done
+  )
+fi
+
+# Create the ./install directory and copy the slack-desc into it
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+# Build the package
+cd $PKG
+/sbin/makepkg -l y -c n $TMP/$APP-$PKG_VERSION-$ARCH-$BUILD.txz
+

@@ -1,0 +1,17 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+      |-----handy-ruler------------------------------------------------------|
+liba52: liba52 (a free ATSC A/52 stream decoder)
+liba52:
+liba52: liba52 is a free library for decoding ATSC A/52 streams. It is
+liba52: released under the terms of the GPL license. The A/52 standard is
+liba52: used in a variety of applications, including digital television and
+liba52: DVD. It is also nown as AC-3.
+liba52:
+liba52: Project URL: http://liba52.sourceforge.net/
+liba52:

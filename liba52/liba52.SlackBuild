@@ -1,0 +1,96 @@
+#!/bin/sh -e
+# Matthew Radcliffe last revision 2020/08/10
+
+# Sets initial variables.
+CWD=$(pwd)
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+
+VERSION=${VERSION:-0.7.4}
+PKG_VERSION=${PKG_VERSION:-0.7.4}
+PKG_NAME=${PKG_NAME:-a52dec}
+BUILD=${BUILD:-1}
+APP=liba52
+PKG=$TMP/package-liba52
+
+
+# Automatically determine the architecture we're building on:
+if [ -z "$ARCH" ]; then
+ case "$( uname -m )" in
+   i?86) ARCH=i486 ;;
+   arm*) ARCH=arm ;;
+   # Unless $ARCH is already set, use uname -m for all other archs:
+      *) ARCH=$( uname -m ) ;;
+ esac
+fi
+
+if [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "i686" ]; then
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+else
+  SLKCFLAGS="-O2"
+  LIBDIRSUFFIX=""
+fi
+
+rm -rf $PKG
+mkdir -p $TMP $PKG
+rm -rf $TMP/$PKG_NAME-$VERSION
+
+cd $TMP || exit 1
+
+tar -zxvf $CWD/$PKG_NAME-$VERSION.tar.gz || exit 1
+cd $PKG_NAME-$VERSION || exit 1
+chown -R root:root .
+chmod -R u+w,go+r-w,a-s .
+
+CFLAGS="$SLKCFLAGS" \
+  ./configure \
+  --prefix=/usr \
+  --libdir=/usr/$LIBDIRSUFFIX \
+  --mandir=/usr/man \
+  --localstatedir=/var \
+  --enable-shared \
+  --disable-static \
+  --build=$ARCH-slackware-linux \
+  --host=$ARCH-slackware-linux
+
+make
+make install DESTDIR=$PKG
+
+# Create a directory for documentation
+mkdir -p $PKG/usr/doc/$APP-$VERSION
+
+# Copy documentation to the docs directory and fix permissions
+cp -a COPYING NEWS AUTHORS INSTALL HISTORY README TODO doc/liba52.txt $PKG/usr/doc/$APP-$VERSION
+find $PKG/usr/doc/$APP-$VERSION -type f -exec chmod 644 {} \;
+
+cat $CWD/$APP.SlackBuild > $PKG/usr/doc/$APP-$VERSION/$APP.SlackBuild
+
+# Create the ./install directory and copy the slack-desc into it
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+# Strip some libraries and binaries
+( cd $PKG
+   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+
+# Compress man pages if they exist
+if [ -d $PKG/usr/man ]; then
+  ( cd $PKG/usr/man
+  find . -type f -exec gzip -9 {} \;
+  for i in $(find . -type l) ; do ln -s $(readlink $i).gz $i.gz ; rm $i ; done
+  ) 
+fi
+
+cd $PKG
+/sbin/makepkg -l y -c n $TMP/$APP-$PKG_VERSION-$ARCH-$BUILD.txz
+

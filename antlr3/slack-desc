@@ -1,0 +1,18 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+      |-----handy-ruler------------------------------------------------------|
+antlr3: antlr3 (ANother Tool for Language Recognition v3)
+antlr3:
+antlr3: antlr3, ANother Tool for Language Recognition (ANTLR) is a language
+antlr3: tool that provides a framework for constructing recognizers,
+antlr3: interpreters, compilers, and translators from grammatical
+antlr3: descriptions containing actions in a variety of target languages.
+antlr3:
+antlr3:
+antlr3: https://www.antlr3.org/
+antlr3:

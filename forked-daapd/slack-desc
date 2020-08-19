@@ -1,0 +1,22 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+            |-----handy-ruler------------------------------------------------------|
+forked-daapd: forked-daapd (DAAP media server)
+forked-daapd:
+forked-daapd: forked-daapd is a Linux/FreeBSD DAAP (iTunes), MPD (Music Player
+forked-daapd: Daemon) and RSP (Roku) media server. It supports AirPlay devices and
+forked-daapd: speakers, Apple Remote (and compatibles), MPD clients, Chromecast,
+forked-daapd: network streaming, internet radio, Spotify and LastFM.
+forked-daapd:
+forked-daapd: It does not support streaming video by AirPlay nor Chromecast.
+forked-daapd:
+forked-daapd: forked-daapd is a complete rewrite of mt-daapd (Firefly Media
+forked-daapd: Server).
+forked-daapd:
+forked-daapd: Project URL: https://github.com/ejurgensen/forked-daapd
+forked-daapd:

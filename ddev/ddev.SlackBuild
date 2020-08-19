@@ -1,0 +1,71 @@
+#!/bin/sh -e
+# Matthew Radcliffe last revision 2020/08/19
+
+# Sets initial variables.
+CWD=$(pwd)
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+
+VERSION=${VERSION:-1.15.3}
+APP=ddev
+BUILD=${BUILD:-1}
+PKG=$TMP/package-$APP
+
+# Automatically determine the architecture we're building on:
+if [ -z "$ARCH" ]; then
+ case "$( uname -m )" in
+   i?86) ARCH=i486 ;;
+   arm*) ARCH=arm ;;
+   # Unless $ARCH is already set, use uname -m for all other archs:
+      *) ARCH=$( uname -m ) ;;
+ esac
+fi
+
+if [ "$ARCH" != "x86_64" ]; then
+  echo "$ARCH is not supported"
+  exit 1
+fi
+
+# Delete the leftover directories if they exist (due to a previous build)
+# and (re)create the packaging directory
+rm -rf $PKG
+mkdir -p $TMP $PKG
+rm -rf $TMP/$APP-$VERSION
+mkdir -p $TMP/$APP-$VERSION
+
+# Change to the TMP directory
+cd $TMP/$APP-$VERSION || exit 1
+
+# Extract the application source in TMP
+# Note: if your application comes as a tar.bz2, you need tar -jxvf
+tar -zxvf $CWD/${APP}_linux.v$VERSION.tar.gz || exit 1
+
+# Change ownership and permissions if necessary
+# This may not be needed in some source tarballs, but it never hurts
+chown -R root:root .
+chmod -R u+w,go+r-w,a-s .
+
+# Copies binaries.
+mkdir -p $PKG/usr/bin
+install -vDm755 ddev $PKG/usr/bin/ddev
+install -vDm755 mkcert $PKG/usr/bin/mkcert
+
+install -vDm644 ddev_bash_completion.sh $PKG/usr/share/bash-completion/completions/ddev
+install -vDm644 ddev_fish_completion.sh $PKG/usr/share/fish/vendor_completions.d/ddev.fish
+install -vDm644 ddev_zsh_completion.sh $PKG/usr/share/zsh/site-functions/_ddev
+
+# Copies docs.
+mkdir -p $PKG/usr/doc/$APP-$VERSION
+cat $CWD/LICENSE > $PKG/usr/doc/$APP-$VERSION/LICENSE
+cat $CWD/README.md > $PKG/usr/doc/$APP-$VERSION/README.md
+cat $CWD/CONTRIBUTING.md > $PKG/usr/doc/$APP-$VERSION/CONTRIBUTING.md
+cat $CWD/$APP.SlackBuild > $PKG/usr/doc/$APP-$VERSION/$APP.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+# Build the package
+cd $PKG
+/sbin/makepkg -l y -c n $TMP/$APP-$VERSION-$ARCH-$BUILD.tgz
+

@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+    |-----handy-ruler------------------------------------------------------|
+ddev: ddev (Docker development environment tool)
+ddev:
+ddev: ddev is an open sourc etool that makes it simple to get local PHP
+ddev: development enviroments up and running in minutes. It's powerful and
+ddev: flexible as a result of its per-project environment configurations,
+ddev: which can be extended, version controlled, and shared. In short, ddev
+ddev: aims to allow development etams to use Docker in their workflow
+ddev: without the complexities of bespoke configuration.
+ddev:
+ddev: Project URL: https://github.com/drud/ddev/
+ddev:

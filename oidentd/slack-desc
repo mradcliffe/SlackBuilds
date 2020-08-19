@@ -1,0 +1,18 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+       |-----handy-ruler------------------------------------------------------|
+oidentd: oidentd (Ojnk identd server)
+oidentd:
+oidentd: oidentd is a flexible ident daemon for Linux, FreeBSD, OpenBSD,
+oidentd: NetBSD, and DragonFly BSD. It his highly configurable, allowing the
+oidentd: system administrator to define custom responses based on host and
+oidentd: port pairs.
+oidentd:
+oidentd:
+oidentd: Project URL: https://github.com/janikrabe/oidentd
+oidentd:

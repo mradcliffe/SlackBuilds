@@ -1,0 +1,16 @@
+#!/bin/sh
+# Start/stop/restart oidentd.
+
+case "$1" in
+  'start')
+    echo "Starting oidentd..."
+    /usr/sbin/oidentd --user oidentd --group oidentd -C /etc/oidentd.conf
+    ;;
+  'stop')
+    echo "Killing oidentd..."
+    killall oidentd || echo "No oidentd process found"
+    ;;
+  *)
+    echo "Usage $0 start|stop"
+esac
+
