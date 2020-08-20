@@ -6,3 +6,6 @@
 *.tgz
 *.lz
 *.zip
+*.rpm
+*.deb
+

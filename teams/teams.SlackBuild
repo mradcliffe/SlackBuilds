@@ -1,0 +1,66 @@
+#!/bin/sh -e
+# Matthew Radcliffe latest revision 2020/08/20
+
+CWD=$(pwd)
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+
+VERSION=${VERSION:-1.3.00.16851}
+BUILD=${BUILD:-1}
+APP=teams
+SRCNAM=${APP}_${VERSION}_amd64.deb
+PKG=$TMP/package-$APP
+
+# Automatically determine the architecture we're building on:
+if [ -z "$ARCH" ]; then
+ case "$( uname -m )" in
+   i?86) ARCH=i486 ;;
+   arm*) ARCH=arm ;;
+   # Unless $ARCH is already set, use uname -m for all other archs:
+      *) ARCH=$( uname -m ) ;;
+ esac
+fi
+
+if [ "$ARCH" != "x86_64" ]; then
+    echo "$ARCH not supported"
+    exit 1
+fi
+
+rm -rf $PKG
+mkdir -p $TMP $PKG
+rm -rf $TMP/$APP-$VERSION
+
+# Change to the TMP directory
+cd $PKG || exit 1
+
+ar p $CWD/$SRCNAM data.tar.xz | tar -xvJ
+chown -R root:root .
+chmod -R u+w,go+r-w,a-s .
+
+mkdir -p $PKG/opt
+mv $PKG/usr/share/teams $PKG/opt/
+
+cat <<EOF > $PKG/usr/bin/teams
+#!/bin/sh
+
+TEAMS_PATH="/opt/teams/teams"
+TEAMS_LOGS="$HOME/.config/Microsoft/Microsoft Teams/logs"
+
+mkdir -p "$TEAMS_LOGS"
+nohup "$TEAMS_PATH" "$@" > "$TEAMS_LOGS/teams-startup.log" 2>&1 &
+
+EOF
+
+mkdir -p install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+mkdir -p $PKG/usr/doc/$APP-$VERSION
+cp $PKG/opt/teams/LICENSE* $PKG/usr/doc/$APP-$VERSION/
+rm -rf $PKG/opt/teams/resources/tmp
+cat $CWD/$APP.SlackBuild > $PKG/usr/doc/$APP-$VERSION/$APP.SlackBuild
+
+# Build the package
+cd $PKG
+/sbin/makepkg -l y -c n $TMP/$APP-$VERSION-$ARCH-$BUILD.tgz
+
