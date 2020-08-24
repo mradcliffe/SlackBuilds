@@ -7,7 +7,7 @@ if [ "$TMP" = "" ]; then
 fi
 
 VERSION=${VERSION:-1.3.00.16851}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 APP=teams
 SRCNAM=${APP}_${VERSION}_amd64.deb
 PKG=$TMP/package-$APP
@@ -44,12 +44,10 @@ mv $PKG/usr/share/teams $PKG/opt/
 cat <<EOF > $PKG/usr/bin/teams
 #!/bin/sh
 
-TEAMS_PATH="/opt/teams/teams"
-TEAMS_LOGS="$HOME/.config/Microsoft/Microsoft Teams/logs"
+TEAMS_LOGS="\$HOME/.config/Microsoft/Microsoft Teams/logs"
 
-mkdir -p "$TEAMS_LOGS"
-nohup "$TEAMS_PATH" "$@" > "$TEAMS_LOGS/teams-startup.log" 2>&1 &
-
+mkdir -p "\$TEAMS_LOGS"
+/opt/teams/teams > "\$TEAMS_LOGS/teams-startup.log" 2>&1 &
 EOF
 
 mkdir -p install
