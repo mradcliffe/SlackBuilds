@@ -1,0 +1,23 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+             |-----handy-ruler------------------------------------------------------|
+anthy-unicode: anthy-unicode (Anthy Unicode)
+anthy-unicode:
+anthy-unicode: anthy-unicode is another Anthy project forked from Anthy since Anthy
+anthy-unicode: is no longer maintained. I (Takao Fujiwara) contacted Yusuke Tabata-
+anthy-unicode: san and we agreed that myself will maintain Anthy Unicode.
+anthy-unicode:
+anthy-unicode: Anthy Unicode's purposes are:
+anthy-unicode: 1. Convert internal codes from EUC-JP to UTF-8
+anthy-unicode: 2. Migrate the user fields from $HOME/.anthy to $XDG_CONFIG_HOME/
+anthy-unicode:    anthy
+anthy-unicode: 3. Maintain new eras
+anthy-unicode: 4. Enhance the word conversions
+anthy-unicode:
+anthy-unicode: Project URL: https://github.com/fujiwarat/anthy-unicode
+anthy-unicode:
