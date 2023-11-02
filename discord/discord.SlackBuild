@@ -8,18 +8,32 @@ fi
 
 VERSION=${VERSION:-0.0.10}
 BUILD=${BUILD:-1}
+RELEASE=${RELEASE:-""}
 APP=discord
 PKG=$TMP/package-$APP
 PKG_VERSION=$VERSION
+FOLDER=Discord
+
+# - https://discordapp.com/api/download?platform=linux&format=tar.gz
+# - https://discordapp.com/api/download/ptb?platform=linux&format=tar.gz
+# - https://discordapp.com/api/download/canary?platform=linux&format=tar.gz
 
 # Automatically determine the architecture we're building on:
-if [ -z "$ARCH" ]; then
+if [[ -z "$ARCH" ]]; then
  case "$( uname -m )" in
    i?86) ARCH=i486 ;;
    arm*) ARCH=arm ;;
    # Unless $ARCH is already set, use uname -m for all other archs:
       *) ARCH=$( uname -m ) ;;
  esac
+fi
+
+if [[ "$RELEASE" = "canary" ]]; then
+  FOLDER=DiscordCanary
+  APP=$APP-$RELEASE
+elif [[ "$RELEASE" = "ptb" ]]; then
+  FOLDER=DiscordPtb
+  APP=$APP-$RELEASE
 fi
 
 rm -rf $PKG
@@ -37,13 +51,18 @@ mkdir -p $PKG/usr/doc/$APP-$VERSION
 cd $PKG/opt
 tar -zvxf $CWD/$APP-$VERSION.tar.gz || exit 1
 
-cp $PKG/opt/Discord/discord.png $PKG/usr/share/icons/hicolor/256x256/discord.png
+cp $PKG/opt/$FOLDER/discord.png $PKG/usr/share/icons/hicolor/256x256/discord.png
+cp $PKG/opt/$FOLDER/$APP.desktop $PKG/usr/share/applications/$APP.desktop
 
-cp $PKG/opt/Discord/discord.desktop $PKG/usr/share/applications/discord.desktop
-sed -i 's#/usr/share/discord/Discord#/opt/Discord/Discord#' $PKG/usr/share/applications/discord.desktop
+sed -i 's#/usr/share/discord/Discord#/opt/$FOLDER/DiscordCanary#' $PKG/usr/share/applications/$APP.desktop
 
-cat $CWD/$APP.SlackBuild > $PKG/usr/doc/$APP-$VERSION/$APP.SlackBuild
-cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/discord.SlackBuild > $PKG/usr/doc/$APP-$VERSION/$APP.SlackBuild
+
+if [[ "$RELEASE" = "canary" || "RELEASE" = "ptb" ]]; then
+  cat $CWD/slack-desc.$RELEASE > $PKG/install/slack-desc
+else
+  cat $CWD/slack-desc > $PKG/install/slack-desc
+fi
 
 # Build the package
 cd $PKG
